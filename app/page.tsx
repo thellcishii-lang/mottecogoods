@@ -64,7 +64,7 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <div className="flex justify-center md:justify-start">
             <Image
-              src="/logo.png"
+              src="/logo-01.png"
               alt="mottECO"
               width={400}
               height={400}
@@ -201,7 +201,7 @@ export default function HomePage() {
           </div>
           <div className="aspect-square overflow-hidden rounded">
             <Image
-              src="/images/collage-02.jpg"
+              src="/images/collage-04.jpg"
               alt="mottECOロゴ"
               width={800}
               height={800}
