@@ -18,25 +18,25 @@ export function Header() {
 
   return (
     <header className="border-b bg-white sticky top-0 z-50">
-      <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 h-16 md:h-24 flex items-center justify-between">
         {/* ロゴ + サイト名 + SDGs */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 md:gap-5">
           <Image
             src="/logo.png"
             alt="mottECO"
-            width={40}
-            height={40}
-            className="h-10 w-auto"
+            width={80}
+            height={80}
+            className="h-10 md:h-16 w-auto"
           />
-          <span className="font-bold text-lg tracking-wide">
+          <span className="font-bold text-lg md:text-2xl lg:text-3xl tracking-wide">
             mott<span className="text-motteco-red">ECO</span>goods.com
           </span>
           <Image
             src="/sdgs.png"
             alt="SDGs"
-            width={40}
-            height={40}
-            className="h-8 w-auto ml-2 hidden sm:block"
+            width={80}
+            height={80}
+            className="h-8 md:h-12 w-auto ml-1 md:ml-2 hidden sm:block"
           />
         </Link>
 
@@ -45,11 +45,11 @@ export function Header() {
           onClick={() => setOpen(!open)}
           aria-label="メニュー"
           aria-expanded={open}
-          className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded hover:bg-gray-50"
+          className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 border border-gray-300 rounded hover:bg-gray-50 text-sm md:text-base"
         >
-          <span className="text-sm">メニュー</span>
+          <span>メニュー</span>
           <svg
-            className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`}
+            className={`w-4 h-4 md:w-5 md:h-5 transition-transform ${open ? "rotate-180" : ""}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -67,7 +67,7 @@ export function Header() {
       {/* ドロップダウンメニュー */}
       {open && (
         <nav className="border-t bg-white">
-          <ul className="max-w-5xl mx-auto px-4 py-2">
+          <ul className="max-w-6xl mx-auto px-4 py-2">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
