@@ -10,7 +10,7 @@ export function OrderNotice({
 }) {
   return (
     <div className="mt-10 border-t pt-6">
-      <h2 className="text-lg font-bold mb-3">ご注文について</h2>
+      <h2 className="text-lg font-bold mb-3">ご注文方法</h2>
       <p className="text-gray-700 mb-4">
         現在はメールでのご注文のみ承っております。
         下記のフォームまたはメールにて、商品名・数量・お名前・ご住所をお知らせください。
