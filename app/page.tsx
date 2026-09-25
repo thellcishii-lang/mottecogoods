@@ -117,28 +117,107 @@ export default function HomePage() {
       </section>
 
       {/* 商品ハイライト */}
-      <section className="max-w-5xl mx-auto px-4 py-16">
-        <h2 className="text-xl font-bold mb-6">商品</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {products.slice(0, 6).map((p) => (
-            <Link key={p.id} href={`/products/${p.id}`} className="group">
-              <div className="aspect-square bg-gray-100 rounded overflow-hidden">
-                {p.images[0] && (
-                  <Image
-                    src={p.images[0]}
-                    alt={p.name}
-                    width={600}
-                    height={600}
-                    className="w-full h-full object-cover group-hover:opacity-90"
-                  />
-                )}
-              </div>
-              <p className="mt-3 font-bold">{p.name}</p>
-              <p className="text-gray-700">¥{p.price.toLocaleString()}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      // app/page.tsx の「3枚画像セクション」を以下に置き換え
+<section className="max-w-5xl mx-auto px-4 pb-16">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {/* 左：スタートアップキット */}
+    <div className="flex flex-col">
+      <div className="aspect-square overflow-hidden rounded mb-4">
+        <Image
+          src="/images/product-kit.jpg"
+          alt="mottECOグッズスタートアップキット"
+          width={800}
+          height={800}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <h3 className="font-bold mb-3">
+        mott<span className="text-motteco-red">ECO</span>グッズスタートアップキット　色々お得が満載！
+      </h3>
+      <div className="text-sm text-gray-700 leading-relaxed mb-4 space-y-3">
+        <p>
+          mott<span className="text-motteco-red">ECO</span>をお店に導入しようと考える店舗様必見！
+        </p>
+        <p>
+          今ならスタートアップキットでお得にポスターや店頭に貼れるmott
+          <span className="text-motteco-red">ECO</span>シールなど、持ち帰りの紙袋などお得にいたセットがスタートアップキットとしてご用意しております。今だけの特別価格になりますので、お早めにご注文ください！
+        </p>
+      </div>
+      <Link
+        href="/contact"
+        className="mt-auto inline-block text-center border border-black px-4 py-3 text-sm rounded hover:bg-gray-50"
+      >
+        MOTTECOをお店に導入してみる
+      </Link>
+    </div>
+
+    {/* 中：エコクラフトBOX */}
+    <div className="flex flex-col">
+      <div className="aspect-square overflow-hidden rounded mb-4">
+        <Image
+          src="/images/product-craftbox.jpg"
+          alt="mottECOエコクラフトBOX"
+          width={800}
+          height={800}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <h3 className="font-bold mb-3">
+        mott<span className="text-motteco-red">ECO</span>エコクラフトBOX 1枚あたりなら50円!!
+      </h3>
+      <div className="text-sm text-gray-700 leading-relaxed mb-4 space-y-3">
+        <p>
+          mott<span className="text-motteco-red">ECO</span>のロゴ印刷でわかりやすく裏面には持ち帰りに関する注意事項などの記載もあり、安心して持ち帰りをして頂く事が可能です。
+        </p>
+        <p>
+          また、持ち帰った後に消費者様により食品ロスへの関心、SDGsの取り組みへの関心を広く周知して頂くための一助となり、店舗様と共にmott
+          <span className="text-motteco-red">ECO</span>
+          における食品ロスへの問題に取り組んでいただきやすいように弊社では取り組んでおります。
+        </p>
+      </div>
+      <Link
+        href="/products"
+        className="mt-auto inline-block text-center border border-black px-4 py-3 text-sm rounded hover:bg-gray-50"
+      >
+        MOTTECOクラフトBOXを見てみる
+      </Link>
+    </div>
+
+    {/* 右：クラフトバッグ */}
+    <div className="flex flex-col">
+      <div className="aspect-square overflow-hidden rounded mb-4">
+        <Image
+          src="/images/product-bag.jpg"
+          alt="mottECOクラフトバッグ"
+          width={800}
+          height={800}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <h3 className="font-bold mb-3">
+        mott<span className="text-motteco-red">ECO</span>クラフトバッグ
+      </h3>
+      <div className="text-sm text-gray-700 leading-relaxed mb-4 space-y-3">
+        <p>
+          食べきれなかったら「mott<span className="text-motteco-red">ECO</span>」（モッテコ）！！みんなでmott
+          <span className="text-motteco-red">ECO</span>してます！をインスタにあげちゃおう！
+        </p>
+        <p>
+          mott<span className="text-motteco-red">ECO</span>
+          いいねボード投稿で、お得なキャンペーン準備中！
+        </p>
+        <p>今から始めよう！mott<span className="text-motteco-red">ECO</span>いいね投稿！</p>
+        <p>乗り遅れないでね！</p>
+      </div>
+      <Link
+        href="/products"
+        className="mt-auto inline-block text-center border border-black px-4 py-3 text-sm rounded hover:bg-gray-50"
+      >
+        MOTTECOクラフトバッグを見てみる
+      </Link>
+    </div>
+  </div>
+</section>
 
       {/* SNS投稿セクション */}
       <section className="relative w-full h-[40vh] md:h-[50vh] min-h-[300px]">
