@@ -41,7 +41,7 @@ export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <input type="hidden" name="_subject" value="【mottecogoods】ご注文" />
+      <input type="hidden" name="_subject" value="【mottECOグッズ.com】ご注文" />
 
       <label>
         <span className="block text-sm mb-1">お名前 *</span>
@@ -60,11 +60,6 @@ export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
           required
           className="w-full border rounded px-3 py-2"
         />
-      </label>
-
-      <label>
-        <span className="block text-sm mb-1">お電話番号</span>
-        <input name="phone" className="w-full border rounded px-3 py-2" />
       </label>
 
       <label>
