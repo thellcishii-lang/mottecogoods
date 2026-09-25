@@ -34,7 +34,7 @@ export default function AboutPage() {
         <h2 className="text-lg font-bold mb-4">会社情報</h2>
         <dl className="space-y-2 text-gray-700">
           <div className="flex">
-            <dt className="w-24 font-bold">会社名</dt>
+            <dt className="w-24 font-bold">運営会社</dt>
             <dd>the合同会社</dd>
           </div>
           <div className="flex">
