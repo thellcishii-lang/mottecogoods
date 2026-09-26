@@ -117,7 +117,6 @@ export default function HomePage() {
       </section>
 
       {/* 商品ハイライト */}
-      // app/page.tsx の「3枚画像セクション」を以下に置き換え
 <section className="max-w-5xl mx-auto px-4 pb-16">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
     {/* 左：スタートアップキット */}
