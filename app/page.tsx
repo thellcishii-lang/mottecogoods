@@ -271,40 +271,52 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 関連サービス */}
-<section className="py-20 px-4 bg-[#0a0a0a]">
-  <div className="max-w-4xl mx-auto">
-    <div className="grid md:grid-cols-2 gap-6">
-      <a
-        href="https://push-taro.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group block border border-white/20 hover:border-motteco-red transition p-8"
-      >
-        <p className="text-xs tracking-widest text-gray-400 mb-3">SERVICE</p>
-        <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-motteco-red transition">
-          実店舗向けプッシュ通知
-        </h3>
-        <p className="text-gray-400 text-sm leading-relaxed mb-6">
-          店舗とお客様をつなぐ、Webプッシュ通知×CRMサービス。
-        </p>
-        <span className="text-motteco-red font-bold text-sm">詳しく見る →</span>
-      </a>
+    {/* 関連サービス（push-taro） */}
+<section className="relative py-24 md:py-32 px-4 overflow-hidden">
+  {/* 背景グラデーション */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
+  
+  {/* ほんのり光るアクセント */}
+  <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/20 rounded-full blur-[120px]" />
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px]" />
 
+  <div className="relative z-10 max-w-4xl mx-auto text-center">
+    {/* バッジ */}
+    <div className="inline-block mb-8">
+      <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-xs md:text-sm px-4 py-2 rounded-full">
+        2026年9月サービス開始予定・先行登録受付中
+      </span>
+    </div>
+
+    {/* メインコピー */}
+    <h2 className="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-white">
+      みんなで広げる、<br />
+      <span className="text-[#ff5722]">ストック収益</span>の新時代
+    </h2>
+
+    {/* サブコピー */}
+    <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
+      Push-taroの代理店・紹介・アフィリエイト ─ 3つの収益化プログラムで、
+      あなたのネットワークを毎月の安定収益に変えませんか？
+    </p>
+
+    {/* ボタン2つ */}
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
       <a
         href="https://push-taro.com/partners"
         target="_blank"
         rel="noopener noreferrer"
-        className="group block border border-white/20 hover:border-motteco-red transition p-8"
+        className="inline-flex items-center justify-center gap-2 bg-[#ff5722] hover:bg-[#e64a19] transition text-white font-bold px-8 py-4 text-base md:text-lg rounded"
       >
-        <p className="text-xs tracking-widest text-gray-400 mb-3">PARTNERS</p>
-        <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-motteco-red transition">
-          代理店パートナー募集
-        </h3>
-        <p className="text-gray-400 text-sm leading-relaxed mb-6">
-          push-taro.comの代理店として、新しい収益源を。
-        </p>
-        <span className="text-motteco-red font-bold text-sm">詳しく見る →</span>
+        → プログラムを比較する
+      </a>
+      <a
+        href="https://push-taro.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 bg-black/40 hover:bg-black/60 border border-white/20 transition text-white font-bold px-8 py-4 text-base md:text-lg rounded"
+      >
+        Push-taroを詳しく見る
       </a>
     </div>
   </div>
