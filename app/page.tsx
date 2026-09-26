@@ -271,54 +271,60 @@ export default function HomePage() {
         </div>
       </section>
 
-    {/* 関連サービス（push-taro） */}
-<section className="relative py-24 md:py-32 px-4 overflow-hidden">
-  {/* 背景グラデーション */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
-  
-  {/* ほんのり光るアクセント */}
-  <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/20 rounded-full blur-[120px]" />
-  <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px]" />
+   {/* 関連サービス（Push-taro / 代理店） */}
+<section className="py-16 md:py-20 px-4 bg-[#0a0a0a]">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
 
-  <div className="relative z-10 max-w-4xl mx-auto text-center">
-    {/* バッジ */}
-    <div className="inline-block mb-8">
-      <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-xs md:text-sm px-4 py-2 rounded-full">
-        2026年9月サービス開始予定・先行登録受付中
-      </span>
-    </div>
+    {/* 左：Push-taro */}
+    <a
+      href="https://push-taro.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative overflow-hidden block py-10 md:py-12 px-6 md:px-10 text-center group"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px]" />
 
-    {/* メインコピー */}
-    <h2 className="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-white">
-      みんなで広げる、<br />
-      <span className="text-[#ff5722]">ストック収益</span>の新時代
-    </h2>
+      <div className="relative z-10">
+        <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-[10px] md:text-xs px-3 py-1 rounded-full mb-4">
+          2026年9月サービス開始予定・先行登録受付中
+        </span>
+        <h3 className="text-xl md:text-3xl lg:text-4xl font-black leading-tight text-white mb-5">
+          既存客のリピートを、<br />
+          <span className="text-[#ff5722]">"プッシュ通知 × CRM"</span>で仕組化。
+        </h3>
+        <span className="inline-flex items-center gap-2 bg-[#ff5722] group-hover:bg-[#e64a19] transition text-white font-bold px-6 py-3 text-sm md:text-base rounded">
+          Push-taroを詳しく見る →
+        </span>
+      </div>
+    </a>
 
-    {/* サブコピー */}
-    <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
-      Push-taroの代理店・紹介・アフィリエイト ─ 3つの収益化プログラムで、
-      あなたのネットワークを毎月の安定収益に変えませんか？
-    </p>
+    {/* 右：代理店 */}
+    <a
+      href="https://push-taro.com/partners"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative overflow-hidden block py-10 md:py-12 px-6 md:px-10 text-center group"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px]" />
 
-    {/* ボタン2つ */}
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="https://push-taro.com/partners"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 bg-[#ff5722] hover:bg-[#e64a19] transition text-white font-bold px-8 py-4 text-base md:text-lg rounded"
-      >
-        → プログラムを比較する
-      </a>
-      <a
-        href="https://push-taro.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 bg-black/40 hover:bg-black/60 border border-white/20 transition text-white font-bold px-8 py-4 text-base md:text-lg rounded"
-      >
-        Push-taroを詳しく見る
-      </a>
-    </div>
+      <div className="relative z-10">
+        <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-[10px] md:text-xs px-3 py-1 rounded-full mb-4">
+          2026年9月正式リリース予定・先行登録受付中
+        </span>
+        <h3 className="text-xl md:text-3xl lg:text-4xl font-black leading-tight text-white mb-5">
+          みんなで広げる、<br />
+          <span className="text-[#ff5722]">ストック収益</span>の新時代
+        </h3>
+        <span className="inline-flex items-center gap-2 bg-[#ff5722] group-hover:bg-[#e64a19] transition text-white font-bold px-6 py-3 text-sm md:text-base rounded">
+          代理店プログラムを見る →
+        </span>
+      </div>
+    </a>
+
   </div>
 </section>
 
