@@ -5,13 +5,11 @@ const nextConfig = {
     return [
       { source: "/collections/:handle", destination: "/products", permanent: true },
       { source: "/pages/:handle", destination: "/:handle", permanent: true },
-      { source: "/products/:handle", destination: "/products/:handle", permanent: true },
+      // /products/:handle → /products/:handle は無限ループになるので削除
     ];
   },
   images: {
-    remotePatterns: [
-      // 必要なら外部画像を許可
-    ],
+    remotePatterns: [],
   },
 };
 
