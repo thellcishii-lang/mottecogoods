@@ -272,7 +272,7 @@ export default function HomePage() {
       </section>
 
    {/* 関連サービス（Push-taro / 代理店） */}
-<section className="py-10 md:py-20 px-4 bg-[#0a0a0a]">
+<section className="py-8 md:py-16 px-4 bg-[#0a0a0a]">
   <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-6">
 
     {/* 左：Push-taro */}
@@ -280,7 +280,7 @@ export default function HomePage() {
       href="https://push-taro.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="relative overflow-hidden block py-6 md:py-8 px-0 md:px-8 text-center group"
+      className="relative overflow-hidden block py-4 md:py-6 px-0 md:px-8 text-center group"
     >
       {/* PC・タブレットのみ背景 */}
       <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
@@ -306,7 +306,7 @@ export default function HomePage() {
       href="https://push-taro.com/partners"
       target="_blank"
       rel="noopener noreferrer"
-      className="relative overflow-hidden block py-6 md:py-8 px-0 md:px-8 text-center group"
+      className="relative overflow-hidden block py-4 md:py-6 px-0 md:px-8 text-center group"
     >
       {/* PC・タブレットのみ背景 */}
       <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
