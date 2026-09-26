@@ -15,7 +15,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Organization構造化データ
+  // ③ Organization構造化データ（会社情報をGoogleに伝える）
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
