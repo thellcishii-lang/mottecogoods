@@ -271,6 +271,45 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 関連サービス */}
+<section className="py-20 px-4 bg-[#0a0a0a]">
+  <div className="max-w-4xl mx-auto">
+    <div className="grid md:grid-cols-2 gap-6">
+      <a
+        href="https://push-taro.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block border border-white/20 hover:border-motteco-red transition p-8"
+      >
+        <p className="text-xs tracking-widest text-gray-400 mb-3">SERVICE</p>
+        <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-motteco-red transition">
+          実店舗向けプッシュ通知
+        </h3>
+        <p className="text-gray-400 text-sm leading-relaxed mb-6">
+          店舗とお客様をつなぐ、Webプッシュ通知×CRMサービス。
+        </p>
+        <span className="text-motteco-red font-bold text-sm">詳しく見る →</span>
+      </a>
+
+      <a
+        href="https://push-taro.com/partners"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block border border-white/20 hover:border-motteco-red transition p-8"
+      >
+        <p className="text-xs tracking-widest text-gray-400 mb-3">PARTNERS</p>
+        <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-motteco-red transition">
+          代理店パートナー募集
+        </h3>
+        <p className="text-gray-400 text-sm leading-relaxed mb-6">
+          push-taro.comの代理店として、新しい収益源を。
+        </p>
+        <span className="text-motteco-red font-bold text-sm">詳しく見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
       {/* 3枚画像セクション */}
       <section className="max-w-5xl mx-auto px-4 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
