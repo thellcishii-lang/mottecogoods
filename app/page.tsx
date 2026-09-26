@@ -59,6 +59,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="max-w-3xl mx-auto px-4 py-8">
+  <p className="text-gray-700 leading-relaxed">
+    mottECOグッズ.comは、環境省が推進する「mottECO（モッテコ）」のオリジナルグッズを販売するサイトです。飲食店で食べ残した料理を持ち帰るためのクラフトBOXやバッグ、SNS投稿用のいいねボードなど、食品ロス削減とSDGsの取り組みを支援する商品を取り揃えています。ご注文はメールにて承っております。
+  </p>
+</section>
+
       {/* mottECOについて */}
       <section className="max-w-5xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-10 items-start">
