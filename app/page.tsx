@@ -289,7 +289,7 @@ export default function HomePage() {
 
       <div className="relative z-10">
         <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-[10px] md:text-xs px-3 py-1 rounded-full mb-3">
-          2026年9月サービス開始予定・先行登録受付中
+          2026年9月サービス開始・先行登録受付中
         </span>
         <h3 className="text-lg md:text-2xl lg:text-3xl font-black leading-tight text-white mb-4">
           既存客のリピートを、<br />
@@ -315,7 +315,7 @@ export default function HomePage() {
 
       <div className="relative z-10">
         <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-[10px] md:text-xs px-3 py-1 rounded-full mb-3">
-          2026年9月正式リリース予定・先行登録受付中
+          2026年9月正式リリース・先行登録受付中
         </span>
         <h3 className="text-lg md:text-2xl lg:text-3xl font-black leading-tight text-white mb-4">
           みんなで広げる、<br />
