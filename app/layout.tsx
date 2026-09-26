@@ -15,6 +15,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Organization構造化データ
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "mottECOグッズ.com",
+    legalName: "the合同会社",
+    url: "https://mottecogoods.com",
+    logo: "https://mottecogoods.com/logo.png",
+    email: "mottecogoods@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      postalCode: "357-0123",
+      addressRegion: "埼玉県",
+      addressLocality: "飯能市",
+      streetAddress: "中藤下郷23-21",
+      addressCountry: "JP",
+    },
+  };
+
   return (
     <html lang="ja">
       <body className="flex flex-col min-h-screen">
@@ -23,6 +42,10 @@ export default function RootLayout({
         <Footer />
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
     </html>
   );
 }
