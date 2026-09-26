@@ -10,10 +10,36 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   if (!product) notFound();
 
   const hasSale =
-    product.originalPrice && product.originalPrice > product.price;
+    product.originalPrice !== undefined && product.originalPrice > product.price;
+
+  // ▼① Product構造化データ（Googleに商品情報を伝える）
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    image: product.images.map((img) => `https://mottecogoods.com${img}`),
+    offers: {
+      "@type": "Offer",
+      url: `https://mottecogoods.com/products/${product.id}`,
+      priceCurrency: "JPY",
+      price: product.price,
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: "the合同会社",
+      },
+    },
+  };
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
+      {/* 構造化データ（画面には表示されない） */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+
       <div className="grid md:grid-cols-2 gap-10">
         {/* 左：画像ギャラリー */}
         <div>
@@ -74,10 +100,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           </div>
           <p className="text-sm text-gray-500 mb-6">税込</p>
 
-          {/* 注文案内（OrderNoticeをコンパクト化して配置） */}
           <OrderNotice productName={product.name} price={product.price} />
 
-          {/* 商品説明 */}
           <div className="mt-8 space-y-4">
             <p className="whitespace-pre-wrap text-gray-700 leading-relaxed">
               {product.description}
@@ -100,6 +124,62 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           </div>
         </div>
       </div>
+
+      {/* ▼② 商品ページ下部のFAQ */}
+      <section className="mt-16 max-w-3xl mx-auto">
+        <h2 className="text-xl font-bold mb-6 text-center">よくあるご質問</h2>
+        <div className="space-y-3">
+          <details className="border rounded-lg p-4">
+            <summary className="font-bold cursor-pointer list-none flex items-center justify-between">
+              <span>配送料はいくらですか？</span>
+              <span className="text-gray-400">▼</span>
+            </summary>
+            <p className="mt-3 text-gray-700 text-sm leading-relaxed">
+              配送料はお客様のご負担となります。ご注文後、在庫確認のうえ送料をご案内いたします。
+            </p>
+          </details>
+
+          <details className="border rounded-lg p-4">
+            <summary className="font-bold cursor-pointer list-none flex items-center justify-between">
+              <span>支払い方法を教えてください。</span>
+              <span className="text-gray-400">▼</span>
+            </summary>
+            <p className="mt-3 text-gray-700 text-sm leading-relaxed">
+              現在は銀行振込にて承っております。ご注文後、在庫確認のうえ振込先をご案内いたします。振込手数料はお客様のご負担となります。
+            </p>
+          </details>
+
+          <details className="border rounded-lg p-4">
+            <summary className="font-bold cursor-pointer list-none flex items-center justify-between">
+              <span>注文から届くまでどのくらいかかりますか？</span>
+              <span className="text-gray-400">▼</span>
+            </summary>
+            <p className="mt-3 text-gray-700 text-sm leading-relaxed">
+              ご注文から5営業日以内に発送いたします。在庫状況により前後する場合がございます。
+            </p>
+          </details>
+
+          <details className="border rounded-lg p-4">
+            <summary className="font-bold cursor-pointer list-none flex items-center justify-between">
+              <span>返品はできますか？</span>
+              <span className="text-gray-400">▼</span>
+            </summary>
+            <p className="mt-3 text-gray-700 text-sm leading-relaxed">
+              業務用につき基本返品不可とさせていただいております。但し、不良品につきましては交換させていただきますが、ご購入から15日以内とさせていただきます。
+            </p>
+          </details>
+
+          <details className="border rounded-lg p-4">
+            <summary className="font-bold cursor-pointer list-none flex items-center justify-between">
+              <span>大量注文はできますか？</span>
+              <span className="text-gray-400">▼</span>
+            </summary>
+            <p className="mt-3 text-gray-700 text-sm leading-relaxed">
+              はい、承っております。6ケース以上ご注文の場合は、mottecogoods@gmail.com まで直接お問い合わせください。
+            </p>
+          </details>
+        </div>
+      </section>
 
       {/* 戻るリンク */}
       <div className="mt-12 text-center">
