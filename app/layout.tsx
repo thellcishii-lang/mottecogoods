@@ -2,6 +2,7 @@
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "mottECOグッズ.com",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   );
 }
