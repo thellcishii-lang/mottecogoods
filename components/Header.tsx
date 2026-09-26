@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
-  const navLinks = [
   { href: "/", label: "ホーム" },
   { href: "/products", label: "商品一覧" },
   { href: "/about", label: "会社概要" },
