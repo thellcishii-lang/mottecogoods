@@ -272,29 +272,30 @@ export default function HomePage() {
       </section>
 
    {/* 関連サービス（Push-taro / 代理店） */}
-<section className="py-16 md:py-20 px-4 bg-[#0a0a0a]">
-  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+<section className="py-10 md:py-20 px-4 bg-[#0a0a0a]">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-6">
 
     {/* 左：Push-taro */}
     <a
       href="https://push-taro.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="relative overflow-hidden block py-10 md:py-12 px-6 md:px-10 text-center group"
+      className="relative overflow-hidden block py-6 md:py-8 px-0 md:px-8 text-center group"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
-      <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px]" />
+      {/* PC・タブレットのみ背景 */}
+      <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
+      <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-[100px]" />
+      <div className="hidden md:block absolute bottom-0 left-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px]" />
 
       <div className="relative z-10">
-        <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-[10px] md:text-xs px-3 py-1 rounded-full mb-4">
+        <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-[10px] md:text-xs px-3 py-1 rounded-full mb-3">
           2026年9月サービス開始予定・先行登録受付中
         </span>
-        <h3 className="text-xl md:text-3xl lg:text-4xl font-black leading-tight text-white mb-5">
+        <h3 className="text-lg md:text-2xl lg:text-3xl font-black leading-tight text-white mb-4">
           既存客のリピートを、<br />
           <span className="text-[#ff5722]">"プッシュ通知 × CRM"</span>で仕組化。
         </h3>
-        <span className="inline-flex items-center gap-2 bg-[#ff5722] group-hover:bg-[#e64a19] transition text-white font-bold px-6 py-3 text-sm md:text-base rounded">
+        <span className="inline-flex items-center gap-2 bg-[#ff5722] group-hover:bg-[#e64a19] transition text-white font-bold px-5 py-2 text-sm md:text-base rounded">
           Push-taroを詳しく見る →
         </span>
       </div>
@@ -305,21 +306,22 @@ export default function HomePage() {
       href="https://push-taro.com/partners"
       target="_blank"
       rel="noopener noreferrer"
-      className="relative overflow-hidden block py-10 md:py-12 px-6 md:px-10 text-center group"
+      className="relative overflow-hidden block py-6 md:py-8 px-0 md:px-8 text-center group"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
-      <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px]" />
+      {/* PC・タブレットのみ背景 */}
+      <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
+      <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-[100px]" />
+      <div className="hidden md:block absolute bottom-0 left-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px]" />
 
       <div className="relative z-10">
-        <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-[10px] md:text-xs px-3 py-1 rounded-full mb-4">
+        <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-[10px] md:text-xs px-3 py-1 rounded-full mb-3">
           2026年9月正式リリース予定・先行登録受付中
         </span>
-        <h3 className="text-xl md:text-3xl lg:text-4xl font-black leading-tight text-white mb-5">
+        <h3 className="text-lg md:text-2xl lg:text-3xl font-black leading-tight text-white mb-4">
           みんなで広げる、<br />
           <span className="text-[#ff5722]">ストック収益</span>の新時代
         </h3>
-        <span className="inline-flex items-center gap-2 bg-[#ff5722] group-hover:bg-[#e64a19] transition text-white font-bold px-6 py-3 text-sm md:text-base rounded">
+        <span className="inline-flex items-center gap-2 bg-[#ff5722] group-hover:bg-[#e64a19] transition text-white font-bold px-5 py-2 text-sm md:text-base rounded">
           代理店プログラムを見る →
         </span>
       </div>
