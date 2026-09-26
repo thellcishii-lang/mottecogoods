@@ -1,0 +1,19 @@
+# mottECOグッズ.com
+
+> 環境省が推進する「mottECO」のオリジナルグッズを販売しています。飲食店で食べ残した料理を持ち帰るためのクラフトBOXやバッグ、SNS投稿用のいいねボードなどを取り扱っています。
+
+mottECOグッズ.comは、the合同会社が運営する、環境省の「mottECO」普及活動を支援するグッズ販売サイトです。食品ロス削減とSDGsの取り組みに貢献しています。
+
+## 商品
+
+- [mottECOオリジナルクラフトBOX](https://mottecogoods.com/products/craftbox): 200枚入り。持ち帰り用のクラフトBOX。ポスターとシール付き。
+- [mottECOオリジナルクラフトバッグ](https://mottecogoods.com/products/craftbag): 50枚入り。クラフトBOXがぴったり入るオリジナルバッグ。
+- [mottECOスタートアップキット](https://mottecogoods.com/products/startup-kit): 店舗導入に必要なグッズ一式セット。
+- [mottECOサンプルキット](https://mottecogoods.com/products/sample-kit): お試し用サンプルキット。
+
+## 会社情報
+
+- 運営: the合同会社
+- 所在地: 〒357-0123 埼玉県飯能市中藤下郷23-21
+- メール: mottecogoods@gmail.com
+- 公式サイト: https://mottecogoods.com
