@@ -292,8 +292,8 @@ export default function HomePage() {
           2026年9月サービス開始・先行登録受付中
         </span>
         <h3 className="text-lg md:text-2xl lg:text-3xl font-black leading-tight text-white mb-4">
-          既存客のリピートを、<br />
-          <span className="text-[#ff5722]">"プッシュ通知 × CRM"</span>で仕組化。
+          プッシュ通知、配信無制限。<br />
+          <span className="text-[#ff5722]">"月1万円、初期費用０円、期間縛りなし"</span>
         </h3>
         <span className="inline-flex items-center gap-2 bg-[#ff5722] group-hover:bg-[#e64a19] transition text-white font-bold px-5 py-2 text-sm md:text-base rounded">
           Push-taroを詳しく見る →
