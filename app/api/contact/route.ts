@@ -5,10 +5,8 @@ import nodemailer from "nodemailer";
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-
     const { name, email, address, product, quantity, message } = data;
 
-    // 必須チェック
     if (!name || !email || !address || !product || !quantity) {
       return NextResponse.json(
         { success: false, error: "必須項目が不足しています" },
@@ -16,19 +14,20 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Gmail SMTP設定
+    // Zoho SMTP
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.zoho.jp",
+      port: 465,
+      secure: true,
       auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
+        user: process.env.ZOHO_USER,
+        pass: process.env.ZOHO_APP_PASSWORD,
       },
     });
 
-    // 自分宛の注文通知メール
     const ownerMail = {
-      from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER,
+      from: "mottECogoods <info@mottecogoods.com>",
+      to: "info@mottecogoods.com",
       replyTo: email,
       subject: `【ご注文】${product} × ${quantity}`,
       text: `
@@ -47,9 +46,8 @@ export async function POST(req: NextRequest) {
       `,
     };
 
-    // お客様への自動返信メール
     const customerMail = {
-      from: process.env.GMAIL_USER,
+      from: "mottECogoods <info@mottecogoods.com>",
       to: email,
       subject: `【mottECOグッズ.com】ご注文ありがとうございます`,
       text: `${name} 様
@@ -72,11 +70,10 @@ export async function POST(req: NextRequest) {
 本メールにご返信ください。
 
 mottECOグッズ.com（運営：the合同会社）
-mottecogoods@gmail.com
+info@mottecogoods.com
       `,
     };
 
-    // 2通送信
     await transporter.sendMail(ownerMail);
     await transporter.sendMail(customerMail);
 
