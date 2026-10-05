@@ -31,7 +31,7 @@ export function OrderNotice({
           注文フォームへ
         </Link>
         <a
-          href={`mailto:mottecogoods@gmail.com?subject=${encodeURIComponent(`【ご注文】${productName}`)}&body=${encodeURIComponent(`商品名: ${productName}\n数量: \nお名前: \nご住所: \n`)}`}
+          href={`mailto:info@mottecogoods.com?subject=${encodeURIComponent(`【ご注文】${productName}`)}&body=${encodeURIComponent(`商品名: ${productName}\n数量: \nお名前: \nご住所: \n`)}`}
           className="block text-center border border-black py-3 rounded"
         >
           メールで注文する
