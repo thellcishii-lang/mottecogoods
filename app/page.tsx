@@ -309,9 +309,9 @@ export default function HomePage() {
       className="relative overflow-hidden block py-4 md:py-6 px-0 md:px-8 text-center group"
     >
       {/* PC・タブレットのみ背景 */}
-      <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
-      <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-[100px]" />
-      <div className="hidden md:block absolute bottom-0 left-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a1428] via-[#1a0f1f] to-[#5a1a1a]" />
+　　　　　　　　　　　<div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-[100px]" />
+　　　　　　　　　　　<div className="hidden md:block absolute bottom-0 left-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px]" />
 
       <div className="relative z-10">
         <span className="inline-block bg-red-600/20 border border-red-500/40 text-red-300 text-[10px] md:text-xs px-3 py-1 rounded-full mb-3">
