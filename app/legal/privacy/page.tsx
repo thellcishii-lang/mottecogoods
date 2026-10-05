@@ -118,7 +118,7 @@ export default function PrivacyPage() {
         <li>事業者名：the合同会社</li>
         <li>所在地：〒357-0123 埼玉県飯能市中藤下郷23-21</li>
         <li>個人情報取扱責任者：石井康仁</li>
-        <li>メールアドレス：mottecogoods@gmail.com</li>
+        <li>メールアドレス：info@mottecogoods.com</li>
       </ul>
 
       <h2>8. プライバシーポリシーの変更</h2>
