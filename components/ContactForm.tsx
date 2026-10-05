@@ -23,6 +23,7 @@ export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
       product: data.get("product"),
       quantity: data.get("quantity"),
       message: data.get("message"),
+      company: data.get("company"), // ハニーポット
     };
 
     try {
@@ -118,9 +119,18 @@ export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
         <textarea
           name="message"
           rows={4}
+          maxLength={2000}
           className="w-full border rounded px-3 py-2"
         />
       </label>
+
+      {/* ハニーポット: 人間には見えない。ボット対策 */}
+      <div aria-hidden="true" className="hidden" style={{ display: "none" }}>
+        <label>
+          会社名（入力不要）
+          <input name="company" type="text" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
 
       <button
         type="submit"
