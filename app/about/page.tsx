@@ -45,7 +45,7 @@ export default function AboutPage() {
             <dt className="w-24 font-bold">メール</dt>
             <dd>
               <a href="mailto:mottecogoods@gmail.com" className="underline">
-                mottecogoods@gmail.com
+                info@mottecogoods.com
               </a>
             </dd>
           </div>
