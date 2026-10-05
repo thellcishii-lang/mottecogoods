@@ -10,7 +10,7 @@ const items = [
     label: "所在地",
     value: "〒357-0123 埼玉県飯能市中藤下郷23-21",
   },
-  { label: "メールアドレス", value: "mottecogoods@gmail.com" },
+  { label: "メールアドレス", value: "info@mottecogoods.com" },
   { label: "販売価格", value: "商品ごとに明記" },
   {
     label: "商品代金以外の必要料金",
@@ -30,7 +30,7 @@ const items = [
   },
   {
     label: "お問い合わせ",
-    value: "mottecogoods@gmail.com までご連絡ください。",
+    value: "info@mottecogoods.com までご連絡ください。",
   },
 ];
 
