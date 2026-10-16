@@ -34,6 +34,9 @@ function isRateLimited(ip: string): boolean {
 // ── バリデーション ─────────────────────────────────
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// 日本語（ひらがな・カタカナ・漢字・長音符・繰り返し記号・スペース）のみ
+const JAPANESE_NAME_RE = /^[ぁ-んァ-ヶー一-龠々\s　]+$/;
+
 type Fields = {
   name: string;
   email: string;
@@ -71,6 +74,15 @@ function validate(
   if (!name || !address || !product) {
     return { ok: false, error: "必須項目が不足しています" };
   }
+
+  // ★ 名前が日本語かチェック（英数字・記号を弾く）
+  if (!JAPANESE_NAME_RE.test(name)) {
+    return {
+      ok: false,
+      error: "お名前は日本語（ひらがな・カタカナ・漢字）でご入力ください",
+    };
+  }
+
   if (!email || !EMAIL_RE.test(email)) {
     return { ok: false, error: "メールアドレスの形式が正しくありません" };
   }
