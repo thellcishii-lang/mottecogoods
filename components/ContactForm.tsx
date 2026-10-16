@@ -2,7 +2,7 @@
 "use client";
 import { useState } from "react";
 
-// 日本語チェック用の正規表現
+// 日本語チェック用の正規表現（ひらがな・カタカナ・漢字・長音符・繰り返し記号・スペース）
 const JAPANESE_NAME_REGEX = /^[ぁ-んァ-ヶー一-龠々\s　]+$/;
 
 export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
@@ -24,7 +24,9 @@ export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
     // 名前の日本語チェック
     if (!JAPANESE_NAME_REGEX.test(name)) {
       setStatus("error");
-      setErrorMessage("お名前は日本語（ひらがな・カタカナ・漢字）でご入力ください。");
+      setErrorMessage(
+        "お名前は日本語（ひらがな・カタカナ・漢字）でご入力ください。"
+      );
       return;
     }
 
@@ -66,6 +68,9 @@ export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
         <p className="text-gray-700 mt-2">
           折り返しご連絡いたします。しばらくお待ちください。
         </p>
+        <p className="text-sm text-gray-500 mt-2">
+          確認メールをお送りしておりますので、ご確認ください。
+        </p>
       </div>
     );
   }
@@ -83,7 +88,55 @@ export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
         />
       </label>
 
-      {/* ...以下、既存のフォームと同じ... */}
+      <label>
+        <span className="block text-sm mb-1">メールアドレス *</span>
+        <input
+          name="email"
+          type="email"
+          required
+          className="w-full border rounded px-3 py-2"
+        />
+      </label>
+
+      <label>
+        <span className="block text-sm mb-1">ご住所 *</span>
+        <input
+          name="address"
+          required
+          className="w-full border rounded px-3 py-2"
+        />
+      </label>
+
+      <label>
+        <span className="block text-sm mb-1">ご注文商品 *</span>
+        <input
+          name="product"
+          required
+          defaultValue={defaultProduct}
+          className="w-full border rounded px-3 py-2"
+        />
+      </label>
+
+      <label>
+        <span className="block text-sm mb-1">数量 *</span>
+        <input
+          name="quantity"
+          type="number"
+          min={1}
+          defaultValue={1}
+          required
+          className="w-full border rounded px-3 py-2"
+        />
+      </label>
+
+      <label>
+        <span className="block text-sm mb-1">備考</span>
+        <textarea
+          name="message"
+          rows={4}
+          className="w-full border rounded px-3 py-2"
+        />
+      </label>
 
       <button
         type="submit"
