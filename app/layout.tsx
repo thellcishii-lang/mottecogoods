@@ -10,6 +10,8 @@ export const metadata = {
     "環境省が推進するmottECOのオリジナルグッズ販売。お店もお客様も楽しくSDGsに参加できるグッズをお届けします。",
 };
 
+// app/layout.tsx
+
 export default function RootLayout({
   children,
 }: {
@@ -20,10 +22,10 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "mottECOグッズ.com",
-    legalName: "the合同会社",
+    legalName: "the合同会社", // 運営会社名を明記
     url: "https://mottecogoods.com",
-    logo: "https://mottecogoods.com/logo.png",
-    email: "mottecogoods@gmail.com",
+    logo: "https://mottecogoods.com/logo.png", // ★画像のURLに修正
+    email: "info@mottecogoods.com",
     address: {
       "@type": "PostalAddress",
       postalCode: "357-0123",
@@ -32,6 +34,9 @@ export default function RootLayout({
       streetAddress: "中藤下郷23-21",
       addressCountry: "JP",
     },
+    sameAs: [
+      "https://push-taro.com" // ★関連サイトとして追加
+    ]
   };
 
   return (
