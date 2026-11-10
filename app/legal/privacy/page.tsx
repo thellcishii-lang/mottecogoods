@@ -22,10 +22,11 @@ export default function PrivacyPage() {
 
       <h3>(1) ユーザーからご提供いただく情報</h3>
       <ul>
-        <li>氏名</li>
+        <li>会社名</li>
+        <li>氏名（担当者名）</li>
         <li>メールアドレス</li>
         <li>住所</li>
-        <li>電話番号（任意でご記入いただいた場合）</li>
+        <li>電話番号</li>
         <li>お問い合わせ・ご注文フォームに入力された情報</li>
       </ul>
 

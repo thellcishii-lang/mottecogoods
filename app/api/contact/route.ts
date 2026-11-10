@@ -34,12 +34,17 @@ function isRateLimited(ip: string): boolean {
 // ── バリデーション ─────────────────────────────────
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// 日本の電話番号: 0から始まる10〜11桁（ハイフンを除去して判定）
+const PHONE_RE = /^0\d{9,10}$/;
+
 // 日本語（ひらがな・カタカナ・漢字・長音符・繰り返し記号・スペース）のみ
 const JAPANESE_NAME_RE = /^[ぁ-んァ-ヶー一-龠々\s　]+$/;
 
 type Fields = {
+  companyName: string;
   name: string;
   email: string;
+  phone: string;
   address: string;
   product: string;
   quantity: number;
@@ -64,27 +69,34 @@ function validate(
       ? v.trim()
       : null;
 
+  const companyName = str(d.companyName, 200);
   const name = str(d.name, 100);
   const email = str(d.email, 254);
+  const phone = str(d.phone, 20);
   const address = str(d.address, 300);
   const product = str(d.product, 200);
   const message =
     typeof d.message === "string" ? d.message.slice(0, 2000) : "";
 
-  if (!name || !address || !product) {
+  if (!companyName || !name || !phone || !address || !product) {
     return { ok: false, error: "必須項目が不足しています" };
   }
 
-  // ★ 名前が日本語かチェック（英数字・記号を弾く）
+  // ★ 担当者名が日本語かチェック（英数字・記号を弾く）
   if (!JAPANESE_NAME_RE.test(name)) {
     return {
       ok: false,
-      error: "お名前は日本語（ひらがな・カタカナ・漢字）でご入力ください",
+      error: "担当者名は日本語（ひらがな・カタカナ・漢字）でご入力ください",
     };
   }
 
   if (!email || !EMAIL_RE.test(email)) {
     return { ok: false, error: "メールアドレスの形式が正しくありません" };
+  }
+
+  // ★ 電話番号の形式チェック（ハイフンあり／なし両対応）
+  if (!PHONE_RE.test(phone.replace(/-/g, ""))) {
+    return { ok: false, error: "電話番号の形式が正しくありません" };
   }
 
   const quantity = Number(d.quantity);
@@ -98,8 +110,10 @@ function validate(
   return {
     ok: true,
     fields: {
+      companyName: clean(companyName),
       name: clean(name),
       email: clean(email),
+      phone: clean(phone),
       address,
       product: clean(product),
       quantity,
@@ -142,7 +156,8 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
-    const { name, email, address, product, quantity, message } = result.fields;
+    const { companyName, name, email, phone, address, product, quantity, message } =
+      result.fields;
 
     // Zoho SMTP
     const transporter = nodemailer.createTransport({
@@ -166,8 +181,10 @@ export async function POST(req: NextRequest) {
 ━━━━━━━━━━━━━━━━━━
 商品　　：${product}
 数量　　：${quantity}
-お名前　：${name}
+会社名　：${companyName}
+担当者名：${name}
 メール　：${email}
+電話　　：${phone}
 ご住所　：${address}
 備考　　：${message || "（なし）"}
 ━━━━━━━━━━━━━━━━━━
@@ -191,7 +208,9 @@ export async function POST(req: NextRequest) {
 ━━━━━━━━━━━━━━━━━━
 商品　　：${product}
 数量　　：${quantity}
-お名前　：${name}
+会社名　：${companyName}
+担当者名：${name}
+電話　　：${phone}
 ご住所　：${address}
 備考　　：${message || "（なし）"}
 ━━━━━━━━━━━━━━━━━━

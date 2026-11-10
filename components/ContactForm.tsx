@@ -21,18 +21,20 @@ export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
 
     const name = String(data.get("name") || "").trim();
 
-    // 名前の日本語チェック
+    // 担当者名の日本語チェック
     if (!JAPANESE_NAME_REGEX.test(name)) {
       setStatus("error");
       setErrorMessage(
-        "お名前は日本語（ひらがな・カタカナ・漢字）でご入力ください。"
+        "担当者名は日本語（ひらがな・カタカナ・漢字）でご入力ください。"
       );
       return;
     }
 
     const payload = {
+      companyName: data.get("companyName"),
       name,
       email: data.get("email"),
+      phone: data.get("phone"),
       address: data.get("address"),
       product: data.get("product"),
       quantity: data.get("quantity"),
@@ -78,7 +80,16 @@ export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <label>
-        <span className="block text-sm mb-1">お名前 *（日本語）</span>
+        <span className="block text-sm mb-1">会社名 *</span>
+        <input
+          name="companyName"
+          required
+          className="w-full border rounded px-3 py-2"
+        />
+      </label>
+
+      <label>
+        <span className="block text-sm mb-1">担当者名 *（日本語）</span>
         <input
           name="name"
           required
@@ -93,6 +104,16 @@ export function ContactForm({ defaultProduct }: { defaultProduct?: string }) {
         <input
           name="email"
           type="email"
+          required
+          className="w-full border rounded px-3 py-2"
+        />
+      </label>
+
+      <label>
+        <span className="block text-sm mb-1">電話番号 *</span>
+        <input
+          name="phone"
+          type="tel"
           required
           className="w-full border rounded px-3 py-2"
         />
