@@ -122,6 +122,68 @@ function validate(
   };
 }
 
+// ── お客様向けメールの「型」（HTMLテンプレート）─────────
+// 2026-11-25: 自動返信（お客様向け）は、枠・色の「型」を被せたHTMLで送る。
+// 運営者宛の注文通知は従来どおりテキストのみ。
+// 帯カラーはサイトの濃紺 #0a1428。フッターは
+// サイト名／運営会社／住所／メールアドレス／サイトURL の5要素。
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function customerMailHtml(f: Fields): string {
+  const rows: Array<[string, string]> = [
+    ["商品", f.product],
+    ["数量", String(f.quantity)],
+    ["会社名", f.companyName],
+    ["担当者名", f.name],
+    ["電話", f.phone],
+    ["ご住所", f.address],
+    ["備考", f.message || "（なし）"],
+  ];
+  const rowsHtml = rows
+    .map(([k, v], i) => {
+      const border =
+        i < rows.length - 1 ? "border-bottom:1px solid #edf0f5;" : "";
+      return `
+        <tr>
+          <td style="padding:9px 4px;${border}color:#7a8699;font-weight:700;white-space:nowrap;width:92px;vertical-align:top;">${k}</td>
+          <td style="padding:9px 4px;${border}vertical-align:top;">${escapeHtml(v).replace(/\n/g, "<br />")}</td>
+        </tr>`;
+    })
+    .join("");
+  return `
+<div style="background:#eceff3;padding:24px 16px;font-family:-apple-system,'Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif;">
+  <div style="width:100%;background:#ffffff;border-radius:12px;overflow:hidden;">
+    <div style="background:#0a1428;padding:22px 28px;">
+      <span style="color:#ffffff;font-size:21px;font-weight:900;letter-spacing:0.02em;">mott<span style="color:#ff8a50;">ECO</span>グッズ.com</span>
+      <div style="color:#c3ccd9;font-size:12px;margin-top:5px;letter-spacing:0.06em;">食品ロス削減「mottECO」オリジナルグッズ</div>
+    </div>
+    <div style="padding:26px 28px 6px;color:#2a3442;font-size:14px;line-height:2.0;">
+      <p style="margin:0 0 10px;font-weight:700;color:#14213d;">${escapeHtml(f.name)} 様</p>
+      <p style="margin:0;">この度はmottECOグッズ.comをご利用いただき、誠にありがとうございます。<br />以下の内容でご注文を承りました。在庫を確認のうえ、改めてご連絡いたします。</p>
+      <div style="border:1.5px solid #d8dfe9;border-radius:12px;padding:6px 18px;margin:18px 0 20px;">
+        <table style="width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.7;">${rowsHtml}
+        </table>
+      </div>
+      <p style="margin:0;">ご不明な点がございましたら、本メールにご返信ください。</p>
+    </div>
+    <div style="border-top:1px solid #e3e8f0;padding:16px 28px 20px;font-size:11.5px;color:#66707e;line-height:1.9;background:#f8fafc;">
+      mottECOグッズ.com<br />
+      運営会社：the合同会社<br />
+      〒357-0123 埼玉県飯能市中藤下郷23-21<br />
+      <a href="mailto:info@mottecogoods.com" style="color:#66707e;">info@mottecogoods.com</a><br />
+      <a href="https://mottecogoods.com" style="color:#66707e;">https://mottecogoods.com</a>
+    </div>
+  </div>
+</div>`;
+}
+
 // ── メイン ─────────────────────────────────────────
 export async function POST(req: NextRequest) {
   try {
@@ -221,6 +283,7 @@ export async function POST(req: NextRequest) {
 mottECOグッズ.com（運営：the合同会社）
 info@mottecogoods.com
       `,
+      html: customerMailHtml(result.fields),
     };
 
     await transporter.sendMail(ownerMail);
